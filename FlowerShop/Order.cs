@@ -10,12 +10,18 @@ namespace FlowerShop
         private List<Flower> flowers;
         private bool isDelivered = false;
         public int Id { get; }
-        public IOrderDAO DAO;
+        public IOrderDAO DAO;///
 
         // should apply a 20% mark-up to each flower.
         public double Price {
-            get {
-                return 0;
+            get{
+                double markup = 0;
+                foreach (Flower petal in flowers)
+                {
+                    //markup += (petal.Cost * 0.20);
+                    markup += (petal.Cost * 1.20); //20% markup
+                }
+                return markup;
             }
         }
 
