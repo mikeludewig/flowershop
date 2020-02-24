@@ -35,11 +35,14 @@ namespace Tests
             IOrderDAO MockingOrderDAO = Substitute.For<IOrderDAO>();
             IFlowerDAO MockingFlowerDAO = Substitute.For<IFlowerDAO>();
             Order me = new Order(MockingOrderDAO, MockingClient);
-            Flower MockingFlower = Substitute.For<Flower>(MockingFlowerDAO, "ThisFlower", 12.00, 6); //Price of 12.00 Rand
+            IFlower MockingFlower = Substitute.For<Flower>(MockingFlowerDAO, "ThisFlower", 12.00, 1); //Price of 12.00 Rand
 
 
             //Act
-            me.AddFlowers(MockingFlower,6 ); ///not sure what is wrong here. cant seem to get it to work. I get an error message with this line.
+            //me.get(Price);
+            //MockingFlower.get(Price);
+            //me.Price(MockingFlower,1);
+            me.AddFlowers(MockingFlower, 6); ///not sure what is wrong here. cant seem to get it to work. I get an error message with this line.
 
             //Assert
             Assert.AreEqual(14.40, me.Price);
